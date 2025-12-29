@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@500;600&family=Montserrat:wght@500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2C666E;
+  --secondary: #F0EDEE;
+  --accent: #61210F;
+  --dark: #0A0A0A;
+  --gold: #D4AF37;
+  --emerald: #046307;
+  --crimson: #DC143C;
+
+  /* Typographic Scale (1.25 ratio) */
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-base: 1rem;
+  /* 16px */
+  --text-lg: 1.125rem;
+  /* 18px */
+  --text-xl: 1.25rem;
+  /* 20px */
+  --text-2xl: 1.5rem;
+  /* 24px */
+  --text-3xl: 1.875rem;
+  /* 30px */
+  --text-4xl: 2.25rem;
+  /* 36px */
+  --text-5xl: 3rem;
+  /* 48px */
+
+  /* Font Stacks */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-accent: 'Poppins', 'Montserrat', sans-serif;
+  --font-elegant: 'Playfair Display', 'Crimson Text', Georgia, serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--dark);
+  color: var(--secondary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 1.5em;
+  opacity: 0.85;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
+.accent-text {
+  font-family: var(--font-accent);
+  font-weight: 600;
+}
+
+/* Elegant Bio Text */
+.bio-text {
+  font-family: var(--font-elegant);
+  font-size: 1.35rem;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  color: rgba(240, 237, 238, 0.9);
+}
+
+.bio-text strong,
+.bio-text .highlight {
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+.bio-text .keyword {
+  font-family: var(--font-accent);
+  font-weight: 600;
+  font-style: normal;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (min-width: 768px) {
+  .bio-text {
+    font-size: 1.5rem;
+    line-height: 2.1;
+  }
+}
+
+/* Custom Scrollbar - Teal & Dark */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Glassmorphism */
+.glass-effect {
+  background: rgba(44, 102, 110, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(240, 237, 238, 0.1);
+}
+
+.glass-card {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(44, 102, 110, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px -10px rgba(44, 102, 110, 0.5);
+}
+
+/* Hero Gradient */
+.hero-gradient {
+  background: linear-gradient(-45deg, #0A0A0A, #2C666E, #61210F, #0A0A0A);
+  background-size: 400% 400%;
+  animation: gradient-hero 15s ease infinite;
+}
+
+/* Shimmer Effect */
+.shimmer-teal {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--primary) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Ripple Effect Utility */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  background-color: rgba(240, 237, 238, 0.3);
+}
+
+/* Sequential Reveal */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal-item.visible {
+  animation: reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Navigation Underline */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Skill Bar Gradient */
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 1.5s cubic-bezier(1, 0, 0, 1);
+}
+
+/* Chatbot Specific */
+.chat-window {
+  width: 400px;
+  height: 600px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-user {
+  background: var(--accent);
+  color: var(--secondary);
+  border-radius: 18px 18px 0 18px;
+}
+
+.message-ai {
+  background: var(--primary);
+  color: var(--secondary);
+  border-radius: 18px 18px 18px 0;
+}
+
+.thinking-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-teal 1.5s infinite ease-in-out;
+}
+
+.thinking-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Grid System */
+.grid-8 {
+  display: grid;
+  gap: 8px;
+}
+
+/* Form Styles */
+.floating-label-group {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.floating-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(44, 102, 110, 0.5);
+  color: var(--secondary);
+  padding: 10px 0;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+.floating-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.floating-label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: rgba(240, 237, 238, 0.5);
+  pointer-events: none;
+  transition: all 0.3s;
+}
+
+.floating-input:focus~.floating-label,
+.floating-input:not(:placeholder-shown)~.floating-label {
+  top: -20px;
+  font-size: 12px;
+  color: var(--primary);
+}
