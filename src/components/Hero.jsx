@@ -116,7 +116,7 @@ const Hero = () => {
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 2 }}
-                        href="/public/resume lat.pdf"
+                        href="/resume_lat.pdf"
                         download="Hammad_Ali_Tahir_Resume.pdf"
                         className="ripple-container"
                     >

@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://portfolio-backend-1lt5.onrender.com/api";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 const WS_BASE_URL = API_BASE_URL.replace("http", "ws").replace("/api", "/ws/chat");
 
 export const processRAG = async (query, onChunk = null) => {
