@@ -30,7 +30,7 @@ const projects = [
         title: 'GitHub Research Tool',
         description: 'Agentic system for analyzing codebases and generating deep technical insights from repositories.',
         tech: ['Agentic AI', 'GROQ', 'HuggingFace'],
-        demo: null,
+        demo: 'https://github-research-agent.vercel.app/',
         github: null,
     },
 ]
@@ -129,7 +129,7 @@ const ProjectCard = ({ project, index }) => {
                         </div>
                     ) : (
                         <button className="text-sm font-bold uppercase tracking-widest text-primary group-hover:text-accent transition-colors flex items-center gap-2">
-                            View Details <span className="transform group-hover:translate-x-2 transition-transform">→</span>
+                            search for details in chatbots <span className="transform group-hover:translate-x-2 transition-transform">→</span>
                         </button>
                     )}
                 </div>
